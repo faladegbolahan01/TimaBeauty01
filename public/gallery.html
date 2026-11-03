@@ -1,0 +1,261 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore hairstyle inspiration, braids, wig installations and hair transformations at TimaBeauty Salon in Lagos, Nigeria.">
+  <meta name="theme-color" content="#171511">
+
+  <title>Our Gallery | TimaBeauty Salon</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/gallery.css">
+  <link rel="stylesheet" href="/vendor/aos/aos.css">
+</head>
+
+<body class="gallery-page">
+
+  <header class="gallery-header">
+    <a class="gallery-logo" href="/index.html" aria-label="TimaBeauty Salon home">
+      Tima<span>Beauty</span>
+      <small>HAIR • BEAUTY • CONFIDENCE</small>
+    </a>
+
+    <button class="gallery-menu-toggle" type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="gallery-navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="gallery-navigation" id="gallery-navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a class="active" href="/gallery.html" aria-current="page">Gallery</a>
+      <a href="review.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+      <a class="gallery-nav-booking" href="/booking.html">Book Appointment <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- GALLERY HERO -->
+    <section class="gallery-hero">
+      <div class="gallery-hero-image"></div>
+      <div class="gallery-hero-overlay"></div>
+
+      <div class="gallery-hero-content" data-aos="fade-up">
+        <span class="gallery-eyebrow">THE ART OF BEAUTY</span>
+        <h1>Every look tells<br><em>a beautiful story.</em></h1>
+        <p>Explore styles, discover inspiration and imagine your next transformation.</p>
+        <a class="gallery-button" href="#gallery-collection">EXPLORE THE GALLERY <span>↓</span></a>
+      </div>
+
+      <div class="gallery-hero-bottom">
+        <span>TIMABEAUTY SALON</span>
+        <span>LAGOS, NIGERIA</span>
+      </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="gallery-intro" data-aos="fade-up">
+      <span class="gallery-eyebrow">INSPIRED BY YOU</span>
+      <h2>Find your next <em>signature look.</em></h2>
+      <p>
+        From beautiful braids to elegant finishes, explore our style inspiration
+        and find a look to discuss with our salon team.
+      </p>
+    </section>
+
+    <!-- GALLERY FILTERS AND PHOTOS -->
+    <section class="gallery-collection" id="gallery-collection">
+      <div class="gallery-section-heading" data-aos="fade-up">
+        <div>
+          <span class="gallery-eyebrow">THE STYLE EDIT</span>
+          <h2>Our <em>inspiration</em></h2>
+        </div>
+        <p>Choose a category to explore different looks.</p>
+      </div>
+
+      <div class="gallery-filters" role="group" aria-label="Filter gallery images">
+        <button class="gallery-filter active" type="button" data-filter="all" aria-pressed="true">All styles</button>
+        <button class="gallery-filter" type="button" data-filter="braids" aria-pressed="false">Braids</button>
+        <button class="gallery-filter" type="button" data-filter="wigs" aria-pressed="false">Wig styles</button>
+        <button class="gallery-filter" type="button" data-filter="natural" aria-pressed="false">Natural hair</button>
+        <button class="gallery-filter" type="button" data-filter="colour" aria-pressed="false">Hair colour</button>
+      </div>
+
+      <div class="gallery-grid">
+
+        <article class="gallery-item gallery-item-tall" data-category="braids" data-aos="fade-up">
+          <button class="gallery-photo" type="button"
+            data-image="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=85"
+            data-caption="Braided style inspiration"
+            aria-label="View braided style inspiration">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80"
+              alt="Fashion and hairstyle inspiration" loading="lazy">
+            <span class="gallery-photo-overlay"><span>VIEW IMAGE ↗</span></span>
+          </button>
+          <div class="gallery-item-caption">
+            <div><span>BRAIDS</span><h3>Beautifully braided</h3></div>
+            <span class="gallery-item-number">01</span>
+          </div>
+        </article>
+
+        <article class="gallery-item" data-category="wigs" data-aos="fade-up" data-aos-delay="80">
+          <button class="gallery-photo" type="button"
+            data-image="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=85"
+            data-caption="Elegant hair inspiration"
+            aria-label="View elegant hair inspiration">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"
+              alt="Portrait with elegant beauty styling" loading="lazy">
+            <span class="gallery-photo-overlay"><span>VIEW IMAGE ↗</span></span>
+          </button>
+          <div class="gallery-item-caption">
+            <div><span>WIG STYLES</span><h3>Effortless elegance</h3></div>
+            <span class="gallery-item-number">02</span>
+          </div>
+        </article>
+
+        <article class="gallery-item" data-category="natural" data-aos="fade-up" data-aos-delay="160">
+          <button class="gallery-photo" type="button"
+            data-image="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=1400&q=85"
+            data-caption="Natural beauty inspiration"
+            aria-label="View natural beauty inspiration">
+            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=800&q=80"
+              alt="Portrait celebrating natural beauty" loading="lazy">
+            <span class="gallery-photo-overlay"><span>VIEW IMAGE ↗</span></span>
+          </button>
+          <div class="gallery-item-caption">
+            <div><span>NATURAL HAIR</span><h3>Natural confidence</h3></div>
+            <span class="gallery-item-number">03</span>
+          </div>
+        </article>
+
+        <article class="gallery-item gallery-item-wide" data-category="colour" data-aos="fade-up">
+          <button class="gallery-photo" type="button"
+            data-image="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=1600&q=85"
+            data-caption="Hair styling and colour inspiration"
+            aria-label="View hair colour inspiration">
+            <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=1100&q=80"
+              alt="Hair styling inspiration" loading="lazy">
+            <span class="gallery-photo-overlay"><span>VIEW IMAGE ↗</span></span>
+          </button>
+          <div class="gallery-item-caption">
+            <div><span>HAIR COLOUR</span><h3>A touch of transformation</h3></div>
+            <span class="gallery-item-number">04</span>
+          </div>
+        </article>
+
+        <article class="gallery-item" data-category="wigs" data-aos="fade-up" data-aos-delay="80">
+          <button class="gallery-photo" type="button"
+            data-image="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=1400&q=85"
+            data-caption="Beauty and styling inspiration"
+            aria-label="View beauty and styling inspiration">
+            <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=800&q=80"
+              alt="Beauty portrait inspiration" loading="lazy">
+            <span class="gallery-photo-overlay"><span>VIEW IMAGE ↗</span></span>
+          </button>
+          <div class="gallery-item-caption">
+            <div><span>WIG STYLES</span><h3>Classic beauty</h3></div>
+            <span class="gallery-item-number">05</span>
+          </div>
+        </article>
+
+        <article class="gallery-item" data-category="natural" data-aos="fade-up" data-aos-delay="160">
+          <button class="gallery-photo" type="button"
+            data-image="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1400&q=85"
+            data-caption="Personal style inspiration"
+            aria-label="View personal style inspiration">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
+              alt="Portrait with personal style inspiration" loading="lazy">
+            <span class="gallery-photo-overlay"><span>VIEW IMAGE ↗</span></span>
+          </button>
+          <div class="gallery-item-caption">
+            <div><span>NATURAL BEAUTY</span><h3>Beauty in simplicity</h3></div>
+            <span class="gallery-item-number">06</span>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="gallery-disclaimer">
+        These images are for style inspiration and may not show work performed by TimaBeauty Salon.
+        Ask us about available styles and share your preferred look when booking.
+      </p>
+    </section>
+
+    <!-- BOOKING CALL TO ACTION -->
+    <section class="gallery-cta" data-aos="fade-up">
+      <span class="gallery-eyebrow">LET'S CREATE YOUR LOOK</span>
+      <h2>Save the inspiration.<br><em>Let's make it yours.</em></h2>
+      <p>Tell us which style you love and discuss your next appointment with our team.</p>
+      <a class="gallery-button" href="/booking.html">BOOK YOUR APPOINTMENT <span>↗</span></a>
+    </section>
+  </main>
+
+  <!-- IMAGE LIGHTBOX -->
+  <div class="gallery-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+    <button class="gallery-lightbox-close" type="button" aria-label="Close image viewer">×</button>
+    <button class="gallery-lightbox-prev" type="button" aria-label="Previous image">‹</button>
+    <figure class="gallery-lightbox-figure">
+      <img class="gallery-lightbox-image" src="" alt="">
+      <figcaption class="gallery-lightbox-caption"></figcaption>
+    </figure>
+    <button class="gallery-lightbox-next" type="button" aria-label="Next image">›</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="gallery-footer">
+    <div class="gallery-footer-main">
+      <div class="gallery-footer-brand">
+        <a class="gallery-logo" href="/index.html">
+          Tima<span>Beauty</span>
+          <small>HAIR • BEAUTY • CONFIDENCE</small>
+        </a>
+        <p>Beauty, care and confidence — in every detail.</p>
+      </div>
+
+      <div class="gallery-footer-column">
+        <h3>Explore</h3>
+        <a href="/about.html">Our Story</a>
+        <a href="/services.html">Our Services</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/reviews.html">Reviews</a>
+      </div>
+
+      <div class="gallery-footer-column">
+        <h3>Get in touch</h3>
+        <a href="/contact.html">Contact Us</a>
+        <a href="/booking.html">Book Appointment</a>
+        <a href="https://wa.me/2348060115395" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+        <span>Lagos, Nigeria</span>
+      </div>
+    </div>
+
+    <div class="gallery-footer-bottom">
+      <span>© <span id="current-year"></span> TimaBeauty Salon</span>
+      <span>MADE WITH CARE IN LAGOS</span>
+    </div>
+  </footer>
+
+  <a class="gallery-whatsapp" href="https://wa.me/2348060115395"
+    target="_blank" rel="noopener noreferrer" aria-label="Chat with TimaBeauty Salon on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.52 3.48A11.8 11.8 0 0 0 12.08 0C5.52 0 .18 5.34.18 11.9c0 2.1.55 4.15 1.6 5.95L.08 24l6.3-1.65a11.9 11.9 0 0 0 5.7 1.45h.01C18.65 23.8 24 18.46 24 11.9c0-3.17-1.23-6.15-3.48-8.42ZM12.1 21.78h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.82 9.82 0 0 1-1.51-5.25c0-5.45 4.44-9.9 9.9-9.9 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 7c0 5.45-4.44 9.88-9.89 9.88Zm5.43-7.4c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.74-1.65-2.04-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.38-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.08-.12-.28-.2-.58-.35Z"/>
+    </svg>
+  </a>
+
+  <script src="/vendor/aos/aos.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/gallery.js"></script>
+</body>
+</html>

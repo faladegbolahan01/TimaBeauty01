@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#11100e">
+  <meta name="description" content="Share your experience with TimaBeauty Salon in Lagos.">
+  <title>Client Reviews | TimaBeauty Salon</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/review.css">
+  <script src="./js/review.js" defer></script>
+</head>
+
+<body class="reviews-page">
+
+  <header class="reviews-header">
+    <a class="reviews-brand" href="/index.html">
+      <span>TimaBeauty</span> Salon
+    </a>
+
+    <button class="reviews-menu-toggle" id="reviews-menu-toggle"
+      type="button" aria-label="Open navigation" aria-expanded="false"
+      aria-controls="reviews-navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="reviews-navigation" id="reviews-navigation" aria-label="Main navigation">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="reviews.html" aria-current="page">Reviews</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a class="reviews-header-cta" href="booking.html">Book Appointment</a>
+    </nav>
+
+  </header>
+
+  <main>
+    <section class="reviews-hero">
+      <div class="reviews-hero-decoration" aria-hidden="true"></div>
+
+      <div class="reviews-container reviews-hero-content">
+        <span class="reviews-eyebrow">Customer Feedback</span>
+
+        <h1>Our Clients, <span>Our Pride.</span></h1>
+
+        <p>
+          Every visit is an opportunity to make you feel beautiful.
+          Share your experience and help others discover TimaBeauty Salon.
+        </p>
+
+        <div class="reviews-hero-actions">
+          <a class="reviews-button" href="#customer-reviews">Explore Reviews</a>
+          <a class="reviews-button reviews-button-outline" href="#share-review">Share Your Experience</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews-section reviews-introduction">
+      <div class="reviews-container reviews-intro-content">
+        <span class="reviews-eyebrow">Made With Care</span>
+        <h2>Beauty is personal.<br><span>Your experience matters.</span></h2>
+        <div class="reviews-gold-line"></div>
+        <p>
+          We want this space to reflect genuine experiences from our clients.
+          Customer reviews will appear here after they have been submitted
+          and approved by the salon.
+        </p>
+      </div>
+    </section>
+
+    <section class="reviews-section reviews-list-section" id="customer-reviews">
+      <div class="reviews-container">
+        <div class="reviews-section-heading">
+          <span class="reviews-eyebrow">The Client Experience</span>
+          <h2>Every experience <span>tells a story.</span></h2>
+          <p>
+            Your honest feedback helps us improve our services and helps
+            future clients make informed choices.
+          </p>
+        </div>
+
+        <div class="reviews-grid" id="reviews-list">
+          <article class="reviews-card">
+            <div class="reviews-card-stars" aria-label="Ratings will be displayed when reviews are approved">★★★★★</div>
+            <span class="reviews-card-label">Customer feedback</span>
+            <h3>Your story belongs here.</h3>
+            <p>
+              Have you visited TimaBeauty? Share your honest experience
+              and help another customer choose a salon service.
+            </p>
+            <a class="reviews-card-link" href="#share-review">Leave a review ↗</a>
+          </article>
+
+          <article class="reviews-card">
+            <div class="reviews-card-stars" aria-label="Ratings will be displayed when reviews are approved">★★★★★</div>
+            <span class="reviews-card-label">Real experiences</span>
+            <h3>Every detail matters.</h3>
+            <p>
+              From your consultation to your finished style, we welcome
+              genuine feedback about your visit.
+            </p>
+            <a class="reviews-card-link" href="#share-review">Share feedback ↗</a>
+          </article>
+
+          <article class="reviews-card">
+            <div class="reviews-card-stars" aria-label="Ratings will be displayed when reviews are approved">★★★★★</div>
+            <span class="reviews-card-label">Growing together</span>
+            <h3>Help us do better.</h3>
+            <p>
+              Your feedback gives us valuable insight into what we do well
+              and where we can improve.
+            </p>
+            <a class="reviews-card-link" href="#share-review">Tell us about it ↗</a>
+          </article>
+        </div>
+
+        <p class="reviews-disclaimer">
+          These are invitations to leave feedback, not customer testimonials.
+          Only genuine, approved reviews should be published here.
+        </p>
+      </div>
+    </section>
+
+    <section class="reviews-section reviews-share-section" id="share-review">
+      <div class="reviews-container reviews-share-layout">
+        <div class="reviews-share-copy">
+          <span class="reviews-eyebrow">Your Voice Matters</span>
+          <h2>Tell us about <span>your visit.</span></h2>
+          <div class="reviews-gold-line"></div>
+
+          <p>
+            We appreciate you taking a moment to share your experience.
+            Please be honest, respectful, and specific about the service
+            you received.
+          </p>
+
+          <p class="reviews-share-note">
+            Your review will need to be checked before it is displayed publicly.
+          </p>
+        </div>
+
+        <div class="reviews-form-card">
+          <h3>Leave a Review</h3>
+
+          <form id="review-form" class="reviews-form">
+            <div class="reviews-form-row">
+              <div class="reviews-field">
+                <label for="review-name">Your Name</label>
+                <input
+                  id="review-name"
+                  name="name"
+                  type="text"
+                  placeholder="Enter your name"
+                  minlength="2"
+                  maxlength="80"
+                  autocomplete="name"
+                  required
+                >
+              </div>
+
+              <div class="reviews-field">
+                <label for="review-service">Service Received</label>
+                <select id="review-service" name="service" required>
+                  <option value="">Choose a service</option>
+                  <option value="Hair styling">Hair styling</option>
+                  <option value="Braids">Braids</option>
+                  <option value="Wig installation">Wig installation</option>
+                  <option value="Hair treatment">Hair treatment</option>
+                  <option value="Hair coloring">Hair coloring</option>
+                  <option value="Home service">Home service</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="reviews-field">
+              <label for="review-rating">Your Rating</label>
+              <select id="review-rating" name="rating" required>
+                <option value="">Choose your rating</option>
+                <option value="5">★★★★★ — Excellent</option>
+                <option value="4">★★★★☆ — Very good</option>
+                <option value="3">★★★☆☆ — Good</option>
+                <option value="2">★★☆☆☆ — Fair</option>
+                <option value="1">★☆☆☆☆ — Poor</option>
+              </select>
+            </div>
+
+            <div class="reviews-field">
+              <label for="review-feedback">Your Feedback</label>
+              <textarea
+                id="review-feedback"
+                name="feedback"
+                placeholder="Tell us about your experience..."
+                minlength="10"
+                maxlength="1500"
+                required
+              ></textarea>
+              <span class="reviews-field-hint">Please write at least 10 characters.</span>
+            </div>
+
+            <div class="reviews-consent">
+              <input id="review-consent" name="consent" type="checkbox" required>
+              <label for="review-consent">
+                I agree that TimaBeauty may contact me about this feedback.
+                I understand my review must be approved before it is published.
+              </label>
+            </div>
+
+            <button class="reviews-button reviews-submit" type="submit">
+              Submit Your Review
+            </button>
+
+            <p class="reviews-form-message" id="review-form-message" role="status" aria-live="polite"></p>
+          </form>
+
+          <noscript>
+            <p>Please enable JavaScript to use the review form.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews-section reviews-booking-section">
+      <div class="reviews-container">
+        <span class="reviews-eyebrow">Your Next Visit</span>
+        <h2>Ready for your <span>beauty moment?</span></h2>
+        <p>
+          Discover our salon services and book an appointment for your next look.
+        </p>
+        <a class="reviews-button" href="booking.html">Book Your Appointment</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="reviews-footer">
+    <div class="reviews-container reviews-footer-inner">
+      <a class="reviews-brand" href="index.html">
+        <span>TimaBeauty</span> Salon
+      </a>
+
+      <p>Beauty, care, and confidence — every visit.</p>
+
+      <div class="reviews-footer-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <p class="reviews-copyright">
+        © <span id="reviews-year">2026</span> TimaBeauty Salon. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <a
+    class="reviews-whatsapp"
+    href="https://wa.me/2348060115395"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contact TimaBeauty Salon on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.4-4.9A8.4 8.4 0 1 1 20.5 11.7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M8.7 7.8c.2-.4.5-.4.8-.4h.4c.2 0 .3.1.4.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.3-.1.5.6 1 1.3 1.7 2.3 2.3.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.2.3.4 0 .3-.2 1.1-.6 1.4-.4.4-1.1.6-1.8.4-1.2-.3-2.5-1-3.6-2.1-1-1-1.8-2.4-2-3.5-.2-.7.1-1.5.5-2.1Z" fill="currentColor"/>
+    </svg>
+  </a>
+
+</body>
+</html>

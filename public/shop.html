@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+
+  <title>Shop Hair & Beauty Products | TimaBeauty Salon</title>
+
+  <meta
+    name="description"
+    content="Explore haircare, skincare, beauty tools and accessories at TimaBeauty Salon in Lagos, Nigeria."
+  >
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shop.css">
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="vendor/aos/aos.css">
+
+</head>
+
+<body class="shop-page">
+
+  <!-- HEADER -->
+  <header class="shop-header" data-aos="fade-down" data-aos-duration="900">
+
+    <div class="shop-header-inner">
+
+      <a class="shop-logo" href="/index.html" aria-label="TimaBeauty home">
+        <span class="shop-logo-name">TimaBeauty<span>®</span></span>
+        <span class="shop-logo-subtitle">HAIR &amp; BEAUTY SALON</span>
+      </a>
+
+      <button
+        class="shop-menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="shop-navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="shop-navigation" id="shop-navigation">
+
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a class="active" href="shop.html" aria-current="page">Shop</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+
+        <a class="shop-nav-book" href="booking.html">
+          Book Appointment
+        </a>
+
+      </nav>
+
+      <div class="shop-header-actions">
+
+        <button
+          class="shop-icon-button"
+          id="shop-search-toggle"
+          type="button"
+          aria-label="Focus product search"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.8"></circle>
+            <path d="m16 16 5 5"></path>
+          </svg>
+        </button>
+
+        <a
+          class="shop-icon-button"
+          href="contact.html"
+          aria-label="Contact TimaBeauty"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 21v-2a8 8 0 0 1 16 0v2"></path>
+          </svg>
+        </a>
+
+        <button
+          class="shop-icon-button shop-cart-button"
+          id="shop-cart-toggle"
+          type="button"
+          aria-label="Shopping cart, 0 items"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 3h2l2.2 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 8H6"></path>
+            <circle cx="10" cy="21" r="1"></circle>
+            <circle cx="19" cy="21" r="1"></circle>
+          </svg>
+
+          <span class="shop-cart-count" id="shop-cart-count">0</span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- HERO BANNER -->
+    <section class="shop-hero">
+
+      <div
+        class="shop-hero-content"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+      >
+
+        <p class="shop-eyebrow" data-aos="fade-down" data-aos-delay="100">
+          PREMIUM HAIR &amp; BEAUTY PRODUCTS
+        </p>
+
+        <h1 data-aos="fade-up" data-aos-delay="200">
+          Look Good,<br>
+          <span>Feel Amazing</span>
+        </h1>
+
+        <p
+          class="shop-hero-description"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          Discover beauty essentials selected to help you care for
+          your hair, nourish your skin and enjoy your beauty routine.
+        </p>
+
+        <a
+          class="shop-primary-button"
+          href="#shop-products"
+          data-aos="zoom-in"
+          data-aos-delay="400"
+        >
+          Explore Products
+          <span aria-hidden="true">↗</span>
+        </a>
+
+        <!-- BENEFITS -->
+        <div class="shop-benefits">
+
+          <div class="shop-benefit" data-aos="fade-up" data-aos-delay="300">
+
+            <span class="shop-benefit-icon">♡</span>
+
+            <div>
+              <strong>Beauty Essentials</strong>
+              <small>For your daily routine</small>
+            </div>
+
+          </div>
+
+          <div class="shop-benefit" data-aos="fade-up" data-aos-delay="450">
+
+            <span class="shop-benefit-icon">✦</span>
+
+            <div>
+              <strong>Quality First</strong>
+              <small>Product details matter</small>
+            </div>
+
+          </div>
+
+          <div class="shop-benefit" data-aos="fade-up" data-aos-delay="600">
+
+            <span class="shop-benefit-icon">♡</span>
+
+            <div>
+              <strong>Personal Care</strong>
+              <small>Feel good every day</small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="shop-hero-image"
+        data-aos="fade-left"
+        data-aos-duration="1400"
+        role="img"
+        aria-label="Haircare and beauty products"
+      >
+
+        <div class="shop-hero-image-label" data-aos="zoom-in" data-aos-delay="500">
+          <span>YOUR BEAUTY, YOUR WAY</span>
+          <strong>Everyday luxury.</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SHOP CONTENT -->
+    <section class="shop-main-section" id="shop-products">
+
+      <div
+        class="shop-section-heading"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+
+        <p class="shop-eyebrow">THE BEAUTY EDIT</p>
+
+        <h2>Find Your <span>Favourites</span></h2>
+
+        <p>
+          Explore haircare, skincare and beauty essentials in one place.
+        </p>
+
+      </div>
+
+
+      <div class="shop-layout">
+
+        <!-- FILTER SIDEBAR -->
+        <aside class="shop-sidebar" data-aos="fade-right" data-aos-duration="1000">
+
+          <!-- SEARCH -->
+          <div class="shop-search-box">
+
+            <label class="shop-visually-hidden" for="shop-search">
+              Search products
+            </label>
+
+            <input
+              type="search"
+              id="shop-search"
+              placeholder="Search products..."
+              autocomplete="off"
+            >
+
+            <button id="shop-search-button" type="button" aria-label="Search">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                <path d="m16 16 5 5"></path>
+              </svg>
+
+            </button>
+
+          </div>
+
+
+          <!-- CATEGORIES -->
+          <div class="shop-filter-group">
+
+            <h3>Categories</h3>
+
+            <button class="shop-category active" type="button" data-category="all">
+              <span>All Products</span>
+            </button>
+
+            <button class="shop-category" type="button" data-category="haircare">
+              <span>Hair Care</span>
+            </button>
+
+            <button class="shop-category" type="button" data-category="skincare">
+              <span>Skincare</span>
+            </button>
+
+            <button class="shop-category" type="button" data-category="makeup">
+              <span>Makeup</span>
+            </button>
+
+            <button class="shop-category" type="button" data-category="tools">
+              <span>Hair Tools</span>
+            </button>
+
+            <button class="shop-category" type="button" data-category="accessories">
+              <span>Accessories</span>
+            </button>
+
+          </div>
+
+
+          <!-- PRICE FILTER -->
+          <div class="shop-filter-group">
+
+            <h3>Price Range</h3>
+
+            <label class="shop-range-label" for="shop-price-range">
+              Maximum price
+            </label>
+
+            <input
+              type="range"
+              id="shop-price-range"
+              min="1000"
+              max="50000"
+              step="500"
+              value="50000"
+            >
+
+            <div class="shop-price-values">
+              <span>₦1,000</span>
+              <span id="shop-price-maximum">₦50,000</span>
+            </div>
+
+          </div>
+
+
+          <!-- SIDEBAR NOTE -->
+          <div class="shop-sidebar-note">
+
+            <span>Need help choosing?</span>
+
+            <p>
+              Contact us for assistance with your beauty routine.
+            </p>
+
+            <a href="contact.html">Talk to us ↗</a>
+
+          </div>
+
+        </aside>
+
+
+        <!-- PRODUCTS AREA -->
+        <div class="shop-products-area" data-aos="fade-left" data-aos-duration="1000">
+
+          <div class="shop-toolbar">
+
+            <p id="shop-results-count" aria-live="polite">
+              Browse our beauty collection
+            </p>
+
+            <label class="shop-sort-label" for="shop-sort">
+
+              <span>Sort:</span>
+
+              <select id="shop-sort">
+                <option value="featured">Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+              </select>
+
+            </label>
+
+          </div>
+
+
+          <!-- PRODUCT GRID -->
+          <div class="shop-product-grid" id="shop-product-grid">
+
+            <!-- Product cards are generated by shop.js -->
+
+          </div>
+
+
+          <!-- EMPTY STATE -->
+          <div class="shop-empty-state" id="shop-empty-state" hidden>
+
+            <span>♡</span>
+
+            <h3>No products found</h3>
+
+            <p>
+              Try another search or choose a different category.
+            </p>
+
+            <button
+              class="shop-reset-button"
+              id="shop-reset-filters"
+              type="button"
+            >
+              Clear Filters
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BEAUTY CTA -->
+    <section class="shop-cta" data-aos="zoom-in" data-aos-duration="1200">
+
+      <div data-aos="fade-up" data-aos-delay="200">
+
+        <p class="shop-eyebrow">
+          A LITTLE SELF-CARE GOES A LONG WAY
+        </p>
+
+        <h2>
+          Your Beauty Routine<br>
+          <span>Starts Here.</span>
+        </h2>
+
+        <p>
+          Need help choosing a service instead? Explore our salon treatments.
+        </p>
+
+        <a class="shop-primary-button" href="services.html">
+          Explore Salon Services
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="shop-footer">
+
+    <div class="shop-footer-inner">
+
+      <div class="shop-footer-brand" data-aos="fade-up">
+
+        <a class="shop-logo" href="index.html">
+
+          <span class="shop-logo-name">TimaBeauty<span>®</span></span>
+
+          <span class="shop-logo-subtitle">
+            HAIR &amp; BEAUTY SALON
+          </span>
+
+        </a>
+
+        <p>Beautiful hair. Glowing skin. Confident you.</p>
+
+      </div>
+
+
+      <div class="shop-footer-column" data-aos="fade-up" data-aos-delay="100">
+
+        <h3>Quick Links</h3>
+
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+
+      </div>
+
+
+      <div class="shop-footer-column" data-aos="fade-up" data-aos-delay="200">
+
+        <h3>Customer Care</h3>
+
+        <a href="contact.html">Contact Support</a>
+        <a href="booking.html">Book an Appointment</a>
+        <a href="reviews.html">Customer Reviews</a>
+
+      </div>
+
+
+      <div class="shop-footer-column" data-aos="fade-up" data-aos-delay="300">
+
+        <h3>Stay Connected</h3>
+
+        <p>
+          Follow along for beauty inspiration and updates.
+        </p>
+
+        <a href="https://wa.me/2348060115395" target="_blank" rel="noopener noreferrer">
+          Chat on WhatsApp ↗
+        </a>
+
+        <a href="mailto:timabeauty7@gmail.com">
+          Email Us ↗
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="shop-footer-bottom">
+
+      <p>
+        © <span id="current-year"></span> TimaBeauty Salon. All rights reserved.
+      </p>
+
+      <p>
+        Beautiful Hair <span>♥</span> Glowing Skin <span>♥</span> Confident You
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- CART PANEL -->
+  <div class="shop-cart-overlay" id="shop-cart-overlay" hidden>
+
+    <section
+      class="shop-cart-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="shop-cart-title"
+    >
+
+      <div class="shop-cart-heading">
+
+        <h2 id="shop-cart-title">Your Shopping Bag</h2>
+
+        <button
+          id="shop-cart-close"
+          type="button"
+          aria-label="Close shopping cart"
+        >
+          &times;
+        </button>
+
+      </div>
+
+
+      <div class="shop-cart-items" id="shop-cart-items">
+        <p>Your shopping bag is empty.</p>
+      </div>
+
+
+      <div class="shop-cart-summary">
+
+        <p>
+          <span>Subtotal</span>
+          <strong id="shop-cart-subtotal">₦0</strong>
+        </p>
+
+        <small>
+          Delivery costs, if applicable, will be confirmed at checkout.
+        </small>
+
+        <button id="shop-checkout-button" type="button" disabled>
+          Continue to Checkout
+        </button>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <!-- AOS JAVASCRIPT -->
+  <script src="vendor/aos/aos.js"></script>
+
+  <!-- MAIN JAVASCRIPT -->
+  <script src="js/main.js"></script>
+
+  <!-- SHOP JAVASCRIPT -->
+  <script src="js/shop.js"></script>
+
+
+  <!-- INITIALIZE AOS -->
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      // Initialize AOS animations
+      if (typeof AOS !== "undefined") {
+
+        AOS.init({
+          duration: 1000,
+          easing: "ease-in-out",
+          once: true,
+          offset: 100,
+          delay: 100,
+          mirror: false
+        });
+
+      } else {
+        console.warn("AOS could not load. Check your AOS file paths.");
+      }
+
+      // Automatically update footer year
+      const yearElement = document.getElementById("current-year");
+
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TimaBeauty Salon | Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/admin.css">
+
+    <style>
+        .orders-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin: 24px 0;
+        }
+
+        .orders-stat,
+        .orders-panel {
+            background: var(--card-bg, #fff);
+            border: 1px solid var(--border-color, #eee);
+            border-radius: 14px;
+            padding: 22px;
+            min-width: 0;
+        }
+
+        .orders-stat span,
+        .orders-stat p {
+            color: var(--muted-color, #777);
+        }
+
+        .orders-stat h3 {
+            font-size: 1.65rem;
+            margin: 12px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .orders-panel {
+            margin-bottom: 24px;
+        }
+
+        .orders-table-wrap {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .orders-table-wrap table {
+            width: 100%;
+            min-width: 950px;
+            border-collapse: collapse;
+        }
+
+        .orders-table-wrap th,
+        .orders-table-wrap td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color, #eee);
+            vertical-align: top;
+        }
+
+        .orders-table-wrap th {
+            white-space: nowrap;
+        }
+
+        .order-customer,
+        .order-secondary {
+            display: block;
+            overflow-wrap: anywhere;
+        }
+
+        .order-secondary {
+            color: var(--muted-color, #777);
+            font-size: 0.82rem;
+            margin-top: 5px;
+        }
+
+        .order-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            background: #f1f1f1;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        .order-badge.paid {
+            color: #176b3a;
+            background: #e4f7eb;
+        }
+
+        .order-badge.pending {
+            color: #855a00;
+            background: #fff3cf;
+        }
+
+        .order-badge.failed {
+            color: #a12626;
+            background: #ffe5e5;
+        }
+
+        .orders-message {
+            margin-top: 14px;
+            min-height: 20px;
+        }
+
+        .orders-error {
+            color: #b42318;
+        }
+
+        .orders-success {
+            color: #187744;
+        }
+
+        .order-products {
+            min-width: 160px;
+            white-space: normal;
+        }
+
+        @media (max-width: 760px) {
+            .orders-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .orders-stat,
+            .orders-panel {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="dashboard">
+
+    <aside class="sidebar" data-aos="fade-right">
+        <a href="index.html" class="brand">
+            <span class="brand-icon">T</span>
+            <span>
+                <strong>TimaBeauty</strong>
+                <small>ADMINISTRATION</small>
+            </span>
+        </a>
+
+        <div class="sidebar-label">MAIN MENU</div>
+
+        <nav class="sidebar-nav">
+            <a href="#overview" class="nav-link active">
+                <span>◈</span> Overview
+            </a>
+
+            <a href="#appointments" class="nav-link">
+                <span>▦</span> Appointments
+            </a>
+
+            <a href="#shop-orders" class="nav-link">
+                <span>🛍</span> Shop Orders
+            </a>
+
+            <a href="#payments" class="nav-link">
+                <span>₦</span> Payments
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="salon-profile">
+                <div class="profile-avatar">TB</div>
+                <div>
+                    <strong>TimaBeauty Salon</strong>
+                    <small>Salon Management</small>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-link">
+                ← Back to website
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar" data-aos="fade-down">
+            <div>
+                <p class="eyebrow">SALON MANAGEMENT</p>
+                <h1>Admin Dashboard</h1>
+                <p class="welcome-text">
+                    Welcome back. Here's your salon overview.
+                </p>
+            </div>
+
+            <div class="header-right">
+                <div class="live-indicator"></div>
+                <span>Management Portal</span>
+                <div class="header-avatar">TB</div>
+            </div>
+        </header>
+
+        <!-- OVERVIEW -->
+        <section id="overview" class="dashboard-section">
+            <div class="section-heading" data-aos="fade-up">
+                <div>
+                    <p class="eyebrow">YOUR BUSINESS AT A GLANCE</p>
+                    <h2>Overview</h2>
+                </div>
+                <span class="date-label" id="currentDate">Loading date...</span>
+            </div>
+
+            <div class="stats-grid">
+                <article class="stat-card" data-aos="fade-up">
+                    <div class="stat-top">
+                        <span>Total Appointments</span>
+                        <span class="stat-icon">▦</span>
+                    </div>
+                    <h3 id="totalAppointments">—</h3>
+                    <p>All recorded bookings</p>
+                </article>
+
+                <article class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-top">
+                        <span>Pending Review</span>
+                        <span class="stat-icon">◷</span>
+                    </div>
+                    <h3 id="pendingAppointments">—</h3>
+                    <p>Awaiting your decision</p>
+                </article>
+
+                <article class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-top">
+                        <span>Confirmed</span>
+                        <span class="stat-icon">✓</span>
+                    </div>
+                    <h3 id="confirmedAppointments">—</h3>
+                    <p>Approved appointments</p>
+                </article>
+
+                <article class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-top">
+                        <span>Today's Bookings</span>
+                        <span class="stat-icon">◫</span>
+                    </div>
+                    <h3 id="todayAppointments">—</h3>
+                    <p>Scheduled for today</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- APPOINTMENTS -->
+        <section id="appointments" class="dashboard-section appointments-section" data-aos="fade-up">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CUSTOMER SCHEDULE</p>
+                    <h2>Recent Appointments</h2>
+                    <p class="welcome-text">
+                        Review and manage customer requests.
+                    </p>
+                </div>
+
+                <button type="button" class="outline-button" id="refreshBookings">
+                    ↻ Refresh
+                </button>
+                <button type="button" class="outline-button" id="clearDashboard">
+    Clear Dashboard
+</button>
+            </div>
+
+            <div class="filters">
+                <input type="search" id="searchBookings"
+                    placeholder="Search customer, service or reference..."
+                    aria-label="Search appointments">
+
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="all">All statuses</option>
+                    <option value="pending_review">Pending review</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+
+                <input type="date" id="dateFilter"
+                    aria-label="Filter appointments by date">
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Service</th>
+                        <th>Date &amp; Time</th>
+                        <th>Price</th>
+                        <th>Deposit</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="bookingsTable">
+                    <tr>
+                        <td colspan="7" class="table-message">
+                            Loading appointments...
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="bookingMessage" class="message" role="status"></p>
+        </section>
+
+        <!-- SHOP ORDERS -->
+        <section id="shop-orders" class="dashboard-section" data-aos="fade-up">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">ONLINE STORE</p>
+                    <h2>Shop Orders</h2>
+                    <p class="welcome-text">
+                        View purchases and server-verified payment statuses.
+                    </p>
+                </div>
+
+                <button type="button" class="outline-button" id="refreshOrders">
+                    ↻ Refresh Orders
+                </button>
+            </div>
+
+            <div class="orders-stats">
+                <article class="orders-stat">
+                    <span>Total Shop Orders</span>
+                    <h3 id="totalShopOrders">—</h3>
+                    <p>Orders returned by the server</p>
+                </article>
+
+                <article class="orders-stat">
+                    <span>Paid Shop Orders</span>
+                    <h3 id="paidShopOrders">—</h3>
+                    <p>Orders marked paid by the server</p>
+                </article>
+
+                <article class="orders-stat">
+                    <span>Verified Shop Sales</span>
+                    <h3 id="shopSalesTotal">₦0</h3>
+                    <p>Total value of paid orders</p>
+                </article>
+            </div>
+
+            <div class="orders-panel">
+                <div class="filters">
+                    <input type="search" id="searchShopOrders"
+                        placeholder="Search customer or order reference..."
+                        aria-label="Search shop orders">
+
+                    <select id="shopPaymentFilter" aria-label="Filter shop orders by payment">
+                        <option value="all">All payments</option>
+                        <option value="paid">Paid</option>
+                        <option value="pending">Pending</option>
+                        <option value="failed">Failed</option>
+                    </select>
+                </div>
+
+                <div class="orders-table-wrap">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Order Reference</th>
+                            <th>Products</th>
+                            <th>Total</th>
+                            <th>Payment</th>
+                            <th>Order Status</th>
+                            <th>Transaction ID</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="shopOrdersTable">
+                        <tr>
+                            <td colspan="7" class="table-message">
+                                Loading shop orders...
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p id="shopOrdersMessage" class="orders-message" role="status"></p>
+            </div>
+        </section>
+
+        <!-- APPOINTMENT PAYMENT SUMMARY -->
+        <section id="payments" class="dashboard-section payments-section" data-aos="fade-up">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">FINANCIAL OVERVIEW</p>
+                    <h2>Appointment Payment Summary</h2>
+                </div>
+            </div>
+
+            <div class="payment-grid">
+                <article class="payment-card">
+                    <span>Total Booking Value</span>
+                    <h3 id="totalBookingValue">₦0</h3>
+                    <p>Value of all recorded appointments</p>
+                </article>
+
+                <article class="payment-card">
+                    <span>Deposits Received</span>
+                    <h3 id="depositsReceived">₦0</h3>
+                    <p>Payments verified as received</p>
+                </article>
+
+                <article class="payment-card">
+                    <span>Outstanding Balance</span>
+                    <h3 id="outstandingBalance">₦0</h3>
+                    <p>Balance for confirmed appointments</p>
+                </article>
+            </div>
+
+            <p class="payment-note">
+                Booking deposits are not counted as received unless
+                payment status has been verified by the server.
+            </p>
+        </section>
+
+        <footer class="dashboard-footer">
+            <p>© <span id="currentYear"></span> TimaBeauty Salon.</p>
+            <p>Beauty, confidence and excellence.</p>
+        </footer>
+
+    </main>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/admin.js" defer></script>
+</body>
+</html>

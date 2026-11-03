@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#171018">
+
+    <title>Admin Login | TimaBeauty Salon</title>
+
+    <link rel="stylesheet" href="/css/admin-login.css">
+    <script src="/js/admin-login.js" defer></script>
+</head>
+
+<body>
+    <main class="page-wrapper">
+        <div class="background-glow glow-one"></div>
+        <div class="background-glow glow-two"></div>
+
+        <a href="/" class="home-link">← Back to website</a>
+
+        <section class="login-card">
+            <div class="brand-mark">TB</div>
+
+            <a href="/" class="brand-name">
+                Tima<span>Beauty</span>
+            </a>
+
+            <p class="brand-caption">SALON & BEAUTY STUDIO</p>
+
+            <div class="divider"></div>
+
+            <p class="eyebrow">PRIVATE ADMINISTRATION</p>
+
+            <h1>Welcome <span>Back.</span></h1>
+
+            <p class="description">
+                Sign in to manage appointments, review bookings
+                and keep your salon running smoothly.
+            </p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Admin username</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        maxlength="100"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+
+                    <div class="password-wrapper">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="password-toggle"
+                            aria-label="Show password"
+                        >
+                            Show
+                        </button>
+                    </div>
+                </div>
+
+                <div
+                    id="loginMessage"
+                    class="login-message"
+                    role="alert"
+                    aria-live="polite"
+                    hidden
+                ></div>
+
+                <button type="submit" id="loginButton" class="login-button">
+                    <span id="buttonText">Sign In Securely</span>
+                    <span class="button-arrow" aria-hidden="true">→</span>
+                </button>
+            </form>
+
+            <div class="security-info">
+                <span class="lock-icon" aria-hidden="true">🔒</span>
+
+                <p>
+                    Secure administrator access.
+                    Your login details remain private.
+                </p>
+            </div>
+        </section>
+
+        <footer class="page-footer">
+            © <span id="currentYear"></span> TimaBeauty Salon
+            <span class="footer-separator">•</span>
+            Lagos, Nigeria
+        </footer>
+    </main>
+</body>
+</html>

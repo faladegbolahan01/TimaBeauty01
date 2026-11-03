@@ -1,0 +1,13 @@
+/* Keeps AOS elements visible if the AOS library cannot load. */
+html:not(.aos-ready) [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
