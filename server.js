@@ -282,22 +282,75 @@ async function saveJsonArray(filePath, value) {
   await fs.rename(temporaryFile, filePath);
 }
 
+
 async function readBookings() {
-  return readJsonArray(BOOKINGS_FILE, "Booking");
+  const { data, error } = await supabase
+    .from("bookings")
+    .select("record");
+
+  if (error) throw error;
+
+  if (!data.length) {
+    const local = await readJsonArray(BOOKINGS_FILE, "Booking");
+
+    if (local.length) {
+      await saveBookings(local);
+    }
+
+    return local;
+  }
+
+  return data.map(row => row.record);
 }
 
 async function saveBookings(bookings) {
-  return saveJsonArray(BOOKINGS_FILE, bookings);
-}
+  if (!bookings.length) return;
 
+  const rows = bookings.map(item => ({
+    id: item.id,
+    record: item
+  }));
+
+  const { error } = await supabase
+    .from("bookings")
+    .upsert(rows, { onConflict: "id" });
+
+  if (error) throw error;
+}
 async function readOrders() {
-  return readJsonArray(ORDERS_FILE, "Order");
+  const { data, error } = await supabase
+    .from("orders")
+    .select("record");
+
+  if (error) throw error;
+
+  if (!data.length) {
+    const local = await readJsonArray(ORDERS_FILE, "Order");
+
+    if (local.length) {
+      await saveOrders(local);
+    }
+
+    return local;
+  }
+
+  return data.map(row => row.record);
 }
 
 async function saveOrders(orders) {
-  return saveJsonArray(ORDERS_FILE, orders);
-}
+  if (!orders.length) return;
 
+  const rows = orders.map(item => ({
+    id: item.id,
+    record: item
+  }));
+
+  const { error } = await supabase
+    .from("orders")
+    .upsert(rows, { onConflict: "id" });
+
+  if (error) throw error;
+}
 async function sendBookingStatusEmail(booking) {
   if (!emailTransporter) {
     throw new Error(
@@ -1371,13 +1424,13 @@ app.use((req, res, next) => {
 });
 
 // ERROR HANDLER
-
+ 
 app.use((error, req, res, next) => {
   console.error("Server error:", error.message);
 
   if (res.headersSent) {
     return next(error);
-  }
+  }   
 
   res.status(500).json({
     error: "Something went wrong on the server.",
