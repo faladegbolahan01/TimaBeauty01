@@ -1,7 +1,6 @@
 require("dotenv").config();
 
 const express = require("express");
-const nodemailer = require("nodemailer");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const session = require("express-session");
@@ -73,19 +72,8 @@ const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const SESSION_SECRET = process.env.SESSION_SECRET;
 const FLUTTERWAVE_SECRET_KEY = process.env.FLUTTERWAVE_SECRET_KEY;
-const EMAIL_USER = process.env.EMAIL_USER;
-const EMAIL_APP_PASSWORD = process.env.EMAIL_APP_PASSWORD;
-
-const emailTransporter =
-  EMAIL_USER && EMAIL_APP_PASSWORD
-    ? nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: EMAIL_USER,
-          pass: EMAIL_APP_PASSWORD.replace(/\s/g, ""),
-        },
-      })
-    : null;
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const RESEND_FROM_EMAIL = "TimaBeauty Salon <onboarding@resend.dev>";
 
 // Shop catalogue. Keep product IDs aligned with public/js/shop.js.
 // These are the current sample prices; confirm them before taking real orders.
@@ -351,11 +339,10 @@ async function saveOrders(orders) {
 
   if (error) throw error;
 }
+
 async function sendBookingStatusEmail(booking) {
-  if (!emailTransporter) {
-    throw new Error(
-      "Email is not configured. Check EMAIL_USER and EMAIL_APP_PASSWORD in .env."
-    );
+  if (!RESEND_API_KEY) {
+    throw new Error("RESEND_API_KEY is not configured.");
   }
 
   if (!booking.email) {
@@ -370,32 +357,48 @@ async function sendBookingStatusEmail(booking) {
       ? "Your 30% deposit payment has been received."
       : "Your deposit payment status has not been confirmed as paid.";
 
-  await emailTransporter.sendMail({
-    from: `"TimaBeauty Salon" <${EMAIL_USER}>`,
-    to: booking.email,
-    subject: `TimaBeauty Salon Appointment ${statusText}`,
-    text: [
-      `Hello ${booking.name || "Customer"},`,
-      "",
-      isConfirmed
-        ? "Good news! Your appointment has been confirmed."
-        : "We are sorry, but your appointment could not be confirmed.",
-      "",
-      `Booking reference: ${booking.id}`,
-      `Service: ${booking.service || "Not specified"}`,
-      `Style: ${booking.hairstyle || "Not specified"}`,
-      `Date: ${booking.date || "Not specified"}`,
-      `Time: ${booking.time || "Not specified"}`,
-      `Payment: ${paymentText}`,
-      "",
-      isConfirmed
-        ? "We look forward to welcoming you to TimaBeauty Salon."
-        : "Please contact TimaBeauty Salon if you need assistance. If you have already paid a deposit, contact the salon regarding the payment.",
-      "",
-      "TimaBeauty Salon",
-    ].join("\n"),
+  const emailResponse = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${RESEND_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: RESEND_FROM_EMAIL,
+      to: [booking.email],
+      subject: `TimaBeauty Salon Appointment ${statusText}`,
+      text: [
+        `Hello ${booking.name || "Customer"},`,
+        "",
+        isConfirmed
+          ? "Good news! Your appointment has been confirmed."
+          : "We are sorry, but your appointment could not be confirmed.",
+        "",
+        `Booking reference: ${booking.id}`,
+        `Service: ${booking.service || "Not specified"}`,
+        `Style: ${booking.hairstyle || "Not specified"}`,
+        `Date: ${booking.date || "Not specified"}`,
+        `Time: ${booking.time || "Not specified"}`,
+        `Payment: ${paymentText}`,
+        "",
+        isConfirmed
+          ? "We look forward to welcoming you to TimaBeauty Salon."
+          : "Please contact TimaBeauty Salon if you need assistance. If you have already paid a deposit, contact the salon regarding the payment.",
+        "",
+        "TimaBeauty Salon",
+      ].join("\n"),
+    }),
   });
+
+  const result = await emailResponse.json();
+
+  if (!emailResponse.ok) {
+    throw new Error(result.message || "Resend could not send the email.");
+  }
+
+  return result;
 }
+
 
 if (!ADMIN_USERNAME || !ADMIN_PASSWORD || !SESSION_SECRET) {
   console.error("Missing admin configuration in .env.");
